@@ -15,12 +15,12 @@ public class TerceraEntrega {
         validarJson = new lecturaJson();
         validarJson.validarLectura("Prueba.json");
         Modificador = new ModificarEmpleado();
-        int Antes, Despues;
-        Antes = Modificador.getArrayJSONobject().toString().length();
+        int empleadosAntes, empleadosDespues;
+        empleadosAntes = Modificador.getArrayJSONobject().toString().length();
         String Modificaciones[] = {"","","",""};
         Modificador.modificarEmpleado(Modificaciones);
-        Despues = Modificador.getArrayJSONobject().toString().length();
-        assertFalse(Antes == Despues);
+        empleadosDespues = Modificador.getArrayJSONobject().toString().length();
+        assertFalse(empleadosAntes == empleadosDespues);
     }
 
     @Test
