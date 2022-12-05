@@ -1,3 +1,4 @@
+package Test;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,14 +15,18 @@ class SegundaEntrega {
     private static JSONObject employeesJSONObject;
     private static convertidorEmpleado converter;
 
-
-    @Test
-    public void validarConversionArray(){
+    @BeforeEach
+    void setUp() {
         validacionJSON = new lecturaJson();
         validacionJSON.validarLectura(path);
         employeesJSONObject = validacionJSON.extractJSONObjectbyKey("employees");
         validacionJSON.extractEmployeeJSONArray(employeesJSONObject, "employee");
         converter = new convertidorEmpleado();
+    }
+
+    @Test
+    @DisplayName("Probando conversión de array JSON a array Employee")
+    public void testConvertJSONtoArray(){
 
         boolean allAreEmployee = true;
         converter.convertJSONtoArray(validacionJSON.getArrayJSONobject());
