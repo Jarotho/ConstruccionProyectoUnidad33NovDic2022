@@ -13,6 +13,10 @@ public class ControladorTabla implements ActionListener{
     private final ControladorModificar controladorModificar = new ControladorModificar(vistaModificar);
     private Eliminar vistaEliminar = new Eliminar();
     private final ControladorEliminar controladorEliminar = new ControladorEliminar(vistaEliminar);
+    private Agregar vistaAgregar = new Agregar();
+    private final ControladorAgregar controladorAgregar = new ControladorAgregar(vistaAgregar);
+
+
 
     public ControladorTabla(Vista vista, ArrayList<Empleado> EmpleadoIterator) {
         this.vista = vista;
@@ -68,6 +72,24 @@ public class ControladorTabla implements ActionListener{
                 llenarEmpleados();
             }
             controladorEliminar.setDeleted(false);
+        }
+
+        if(e.getSource() == this.vista.getjButton1()){
+            controladorAgregar.getVistaAgregar().getTextField1().setText("");
+            controladorAgregar.getVistaAgregar().getTextField2().setText("");
+            controladorAgregar.getVistaAgregar().getTextField3().setText("");
+            controladorAgregar.getVistaAgregar().getTextField4().setText("");
+            controladorAgregar.setEmpleados(Empleados);
+            controladorAgregar.getVistaAgregar().setVisible(true);
+
+        }
+        if(e.getSource() == this.controladorAgregar.getVistaAgregar().getRegresarButton()){
+            if(controladorAgregar.getEmpleadoAgregado()){
+                Empleados = controladorAgregar.getEmpleados();
+                this.vista.Table().setRowCount(0);
+                llenarEmpleados();
+            }
+            controladorAgregar.setEmpleadoAgregado(false);
         }
     }
 

@@ -10,7 +10,7 @@ public class EliminarEmpleado {
     private JSONArray arrayJSONobject;
     private JSONObject jsonObject;
     public EliminarEmpleado(){
-        lecturaJson Json = new lecturaJson("Prueba2.json");
+        lecturaJson Json = new lecturaJson("Empleados.json");
         arrayJSONobject = Json.getArrayJSONobject();
         jsonObject = Json.getJsonObject();
     }
@@ -33,7 +33,7 @@ public class EliminarEmpleado {
 
     private void updateJSONFile(){
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("Prueba2.json"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("Empleados.json"));
             String x = jsonObject.toString();
             bw.write("");
             bw.write(x);

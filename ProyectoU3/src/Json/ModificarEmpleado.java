@@ -9,7 +9,7 @@ public class ModificarEmpleado {
     private JSONArray arrayJSONobject;
     private JSONObject jsonObject;
     public ModificarEmpleado(){
-        lecturaJson Json = new lecturaJson("Prueba.json");
+        lecturaJson Json = new lecturaJson("Empleados.json");
         arrayJSONobject = Json.getArrayJSONobject();
         jsonObject = Json.getJsonObject();
     }
@@ -44,7 +44,7 @@ public class ModificarEmpleado {
 
     private void modificarJSon(){
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("Prueba.json"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("Empleados.json"));
             String x = jsonObject.toString();
             bw.write("");
             bw.write(x);

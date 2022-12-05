@@ -79,13 +79,13 @@ public class ControladorModificar implements ActionListener {
             JOptionPane.showMessageDialog(
                     null,
                     "ID: " + valuesToUpdate[0],
-                    "Update Employee",
+                    "Se ha modificado el empleado con éxito",
                     JOptionPane.INFORMATION_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(
                     null,
                     "Ningun empleado fue modificado",
-                    "Update Employee",
+                    "Error",
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }
