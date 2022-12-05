@@ -100,5 +100,9 @@ public JSONArray getArrayJSONobject() {
     return arrayJSONobject;
 }
 
+    public JSONObject getJsonObject(){
+        return this.jsonObject;
+    }
+
 
 }

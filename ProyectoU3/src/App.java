@@ -1,6 +1,7 @@
 import GUI.Controlador.*;
 import GUI.Vista.Vista;
 import Json.*;
+
 public class App{
 
     public static void main(String[] args) {
@@ -9,7 +10,7 @@ public class App{
         converter.convertJSONtoArray(v.getArrayJSONobject());
 
        Vista VistaPrincipal = new Vista();
-        Controlador control = new Controlador(VistaPrincipal, converter.getarrayEmpleado());
+        ControladorTabla control = new ControladorTabla(VistaPrincipal, converter.getarrayEmpleado());
 
         VistaPrincipal.setVisible(true);
 
