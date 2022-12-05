@@ -8,18 +8,18 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
 public class lecturaJson {
-
     private JSONArray arrayJSONobject;
     private JSONObject jsonObject;
+    
+    public lecturaJson(){}
 
-    public static void main(String[] args) throws Exception {
-    lecturaJson json = new lecturaJson();
-    System.out.print(json.jsonReader("Empleados.json"));
-
+    public lecturaJson(String path){
+        validarLectura(path);
+        JSONObject employeeObject = extractJSONObjectbyKey("employees");
+        extractEmployeeJSONArray(employeeObject, "employee");
     }
 
-    
-public boolean jsonReader(String jsonPath){ 
+public boolean validarLectura(String jsonPath){ 
     File archivoJson = new File(jsonPath);  
     Object ob;
 
@@ -87,13 +87,21 @@ public boolean extractEmployeeJSONArray(JSONObject jsonObj, String arrayName){
     jsonArray = (JSONArray) jsonObj.get(arrayName);
     try{
         jsonArray.isEmpty();
-        arrayJSONobject = jsonArray;
+        this.arrayJSONobject = jsonArray;
     }catch(Exception e){
-        System.out.println("No esta difnido "+arrayName+" como arreglo en el JSON");
+        System.out.println("No esta defnido "+arrayName+" como arreglo en el JSON");
         return false;
     }
     return true;
 }
+
+public JSONArray getArrayJSONobject() {
+    return arrayJSONobject;
+}
+
+    public JSONObject getJsonObject(){
+        return this.jsonObject;
+    }
 
 
 }
