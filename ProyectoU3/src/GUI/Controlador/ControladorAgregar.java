@@ -43,11 +43,11 @@ public class ControladorAgregar implements ActionListener {
 
     public void addNewEmployess(){
         try{
-            ID = Integer.parseInt(this.vistaAgregar.getTextField3().getText());
+            ID = Integer.parseInt(this.vistaAgregar.getTextField1().getText());
         }catch (NumberFormatException e){
             ID = -1;
         }
-        this.empleadoAgregado = true;
+        empleadoAgregado = true;
         if(ID >= 0){
             for (Empleado empleados : empleados) {
                 if (empleados.getId() == ID) {
@@ -87,10 +87,10 @@ public class ControladorAgregar implements ActionListener {
     }
 
     public void guardarEmpleado(){
-        camposEmpleado[0] = this.vistaAgregar.getTextField3().getText();
+        camposEmpleado[0] = this.vistaAgregar.getTextField1().getText();
         camposEmpleado[1] = this.vistaAgregar.getTextField2().getText();
-        camposEmpleado[2] = this.vistaAgregar.getTextField1().getText();
-        camposEmpleado[3] = this.vistaAgregar.getTextField4().getText();
+        camposEmpleado[2] = this.vistaAgregar.getTextField4().getText();
+        camposEmpleado[3] = this.vistaAgregar.getTextField3().getText();
     }
 
     

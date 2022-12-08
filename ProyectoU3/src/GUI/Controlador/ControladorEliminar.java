@@ -101,7 +101,4 @@ public class ControladorEliminar implements ActionListener {
         return IDToDelete;
     }
 
-    public JButton getBotonRegrear(){
-        return this.vistaEliminar.getRegresarButton();
-    }
 }

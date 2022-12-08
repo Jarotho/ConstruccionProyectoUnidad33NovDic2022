@@ -11,7 +11,7 @@ public class AgregarEmpleado {
     private JSONArray arrayJSONobject;
     private JSONObject jsonObject;
     public AgregarEmpleado(){
-        lecturaJson v = new lecturaJson("Empleados.json");
+    lecturaJson v = new lecturaJson("C:\\Users\\hp\\Documents\\LIS\\5TOSEMESTRE\\PROYECTODECONSTRUCCION\\entrega5\\Entrega5\\Empleados.json");
         arrayJSONobject = v.getArrayJSONobject();
         jsonObject = v.getJsonObject();
     }
@@ -46,14 +46,13 @@ public class AgregarEmpleado {
         newInnerJSON.put("employee",arrayJSONobject);
         JSONObject newJSON = new JSONObject();
         newJSON.put("employees", newInnerJSON);
-        System.out.println(newJSON);
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("Empleados.json"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\hp\\Documents\\LIS\\5TOSEMESTRE\\PROYECTODECONSTRUCCION\\entrega5\\Entrega5\\Empleados.json"));
             String x = newJSON.toString();
             bw.write("");
             bw.write(x);
             bw.close();
-            lecturaJson v = new lecturaJson("Empleados.json");
+            lecturaJson v = new lecturaJson("C:\\Users\\hp\\Documents\\LIS\\5TOSEMESTRE\\PROYECTODECONSTRUCCION\\entrega5\\Entrega5\\Empleados.json");
             arrayJSONobject = v.getArrayJSONobject();
         } catch (IOException e) {
             throw new RuntimeException(e);

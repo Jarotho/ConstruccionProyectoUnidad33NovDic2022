@@ -27,6 +27,7 @@ public class ControladorTabla implements ActionListener{
 
         this.controladorModificar.getVistaModificar().getRegresarButton().addActionListener(this);
         this.controladorEliminar.getVistaEliminar().getRegresarButton().addActionListener(this);
+        this.controladorAgregar.getVistaAgregar().getRegresarButton().addActionListener(this);
         
         llenarEmpleados();
     }

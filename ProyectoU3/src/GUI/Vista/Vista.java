@@ -43,7 +43,7 @@ public class Vista extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "First name", "Last name", "Photo"
             }
         ));
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
