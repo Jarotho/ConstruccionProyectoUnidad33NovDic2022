@@ -8,10 +8,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
 public class lecturaJson {
-
     private JSONArray arrayJSONobject;
     private JSONObject jsonObject;
-
+    
     public lecturaJson(){}
 
     public lecturaJson(String path){
@@ -88,7 +87,7 @@ public boolean extractEmployeeJSONArray(JSONObject jsonObj, String arrayName){
     jsonArray = (JSONArray) jsonObj.get(arrayName);
     try{
         jsonArray.isEmpty();
-        arrayJSONobject = jsonArray;
+        this.arrayJSONobject = jsonArray;
     }catch(Exception e){
         System.out.println("No esta defnido "+arrayName+" como arreglo en el JSON");
         return false;

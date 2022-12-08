@@ -13,7 +13,7 @@ public class ControladorEliminar implements ActionListener {
     private ArrayList<Empleado> employees;
     private boolean deleted = false;
 
-    private int indexToDelete;
+    private int IDToDelete;
     public ControladorEliminar(Eliminar vistaEliminar){
         this.vistaEliminar = vistaEliminar;
         this.vistaEliminar.getRegresarButton().addActionListener(this);
@@ -33,21 +33,21 @@ public class ControladorEliminar implements ActionListener {
             deleteEmployee();
             if(deleted){
                 EliminarEmpleado eliminarEmpleado = new EliminarEmpleado();
-                eliminarEmpleado.eliminarEmpleado(indexToDelete);
+                eliminarEmpleado.eliminarEmpleado(IDToDelete);
             }
         }
     }
 
     public void deleteEmployee(){
         try{
-            indexToDelete = Integer.parseInt(this.vistaEliminar.getTextField1().getText());
+            IDToDelete = Integer.parseInt(this.vistaEliminar.getTextField1().getText());
         }catch (NumberFormatException e){
-            indexToDelete = -1;
+            IDToDelete = -1;
         }
         deleted = false;
-        if(indexToDelete >= 0){
+        if(IDToDelete >= 0){
             for(int i = 0 ; i < employees.size() ; i++){
-                if (employees.get(i).getId() ==  indexToDelete) {
+                if (employees.get(i).getId() ==  IDToDelete) {
                     employees.remove(i);
                     deleted = true;
                     break;
@@ -57,14 +57,14 @@ public class ControladorEliminar implements ActionListener {
         if(deleted){
             JOptionPane.showMessageDialog(
                     null,
-                    "Se ha eliminado el empleado con id " + indexToDelete,
-                    "Delete Employee",
+                    "Se ha eliminado el empleado con id " + IDToDelete,
+                    "Eliminación realizada con éxito",
                     JOptionPane.INFORMATION_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(
                     null,
-                    "No se pudo eliminar el empleado con id " + indexToDelete,
-                    "Delete Employee",
+                    "No se pudo eliminar el empleado con id " + IDToDelete,
+                    "Error al eliminar empleado",
                     JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -93,15 +93,12 @@ public class ControladorEliminar implements ActionListener {
         return deleted;
     }
 
-    public void setIndexToDelete(int indexToDelete) {
-        this.indexToDelete = indexToDelete;
+    public void setIDToDelete(int IDToDelete) {
+        this.IDToDelete = IDToDelete;
     }
 
-    public int getIndexToDelete() {
-        return indexToDelete;
+    public int getIDToDelete() {
+        return IDToDelete;
     }
 
-    public JButton getBotonRegrear(){
-        return this.vistaEliminar.getRegresarButton();
-    }
 }
